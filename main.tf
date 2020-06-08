@@ -72,5 +72,5 @@ resource "azurerm_virtual_machine" "azure-vm" {
 
 data "azurerm_public_ip" "public-ip" {
   name                = azurerm_public_ip.public-ip.name
-  resource_group_name = azurerm_virtual_machine.azure-vm.resource_group_name
+  resource_group_name = module.vnet.res_group_name
 }
