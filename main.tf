@@ -4,10 +4,7 @@ resource "azurerm_public_ip" "public-ip" {
     resource_group_name          = var.res_group_name
     allocation_method            = "Dynamic"
 
-    tags = {
-        environment = "Dev"
-        Key = "DoNotDelete"
-    }
+    tags = var.tags
 }
 
 resource "azurerm_network_interface" "nic" {
@@ -22,10 +19,7 @@ resource "azurerm_network_interface" "nic" {
         public_ip_address_id          = azurerm_public_ip.public-ip.id
     }
 
-    tags = {
-        environment = "Dev"
-        Key = "DoNotDelete"
-    }
+    tags = var.tags
 }
 
 resource "azurerm_virtual_machine" "azure-vm" {
@@ -64,10 +58,7 @@ resource "azurerm_virtual_machine" "azure-vm" {
         storage_uri = var.storage_endpoint
     }
 
-    tags = {
-        environment = "Dev"
-        Key = "DoNotDelete"
-    }
+    tags = var.tags
 }
 
 data "azurerm_public_ip" "public-ip" {

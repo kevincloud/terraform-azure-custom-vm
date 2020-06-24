@@ -29,3 +29,7 @@ variable "linux_password" {
 variable "storage_endpoint" {
     description = "Endpoint for BLOB storage"
 }
+
+variable "tags" {
+    type = map(string)
+}
